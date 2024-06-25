@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { cn } from '@/shared/utils';
 import { Logo } from '@/shared/assets/logo';
 import { Button } from '@/shared/ui/button';
+import { Burger } from '@/shared/assets/burger';
 
 interface HeaderProps {
   className?: string;
@@ -17,9 +18,12 @@ export const Header = memo((props: HeaderProps) => {
       )}
     >
       <Logo />
-      <div>
+      <div className={'flex'}>
         <Button className={'mr-[8px]'}>создать счет</Button>
-        <Button>корзина</Button>
+        <Button className={'mr-[8px]'}>корзина</Button>
+        <Button variant={'transparent'}>
+          <Burger />
+        </Button>
       </div>
     </header>
   );
