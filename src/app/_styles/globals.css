@@ -1,0 +1,15 @@
+@import './fonts/stylesheet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+
+body {
+    @apply font-poppins;
+}
+
+@layer utilities {
+}

@@ -1,13 +1,45 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+      lineHeight: {
+        'custom-headline': '56px',
+        'title-3': '24px',
+        h1: '112px',
+        h2: '72px',
+        h3: '56px',
+        h4: '36px',
+        h5: '32px',
+        h6: '24px',
+        'subtitle-1': '24px',
+        'subtitle-2': '24px',
+        'body-1': '24px',
+        'body-2': '20px',
+        button: '20px',
+        caption: '16px',
+        overline: '32px',
+      },
+      fontSize: {
+        'custom-headline': '48px',
+        'title-3': '16px',
+        h1: '96px',
+        h2: '60px',
+        h3: '48px',
+        h4: '34px',
+        h5: '24px',
+        h6: '20px',
+        'subtitle-1': '16px',
+        'subtitle-2': '14px',
+        'body-1': '16px',
+        'body-2': '14px',
+        button: '14px',
+        caption: '12px',
+        overline: '12px',
+      },
       color: {
         // bg
         'bg-primary': 'rgba(20,20,20,1)',
@@ -75,6 +107,11 @@ const config: Config = {
       },
     },
   },
+  content: [
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+  ],
   plugins: [],
 };
 export default config;
