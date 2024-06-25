@@ -40,15 +40,7 @@ const config: Config = {
         caption: '12px',
         overline: '12px',
       },
-      color: {
-        // bg
-        'bg-primary': 'rgba(20,20,20,1)',
-        'bg-secondary': 'rgba(35,35,36,1)',
-        'bg-tertiary': 'rgba(32,32,33,1)',
-        'bg-modal': 'rgba(48,48,48,1)',
-        'bg-accent': 'rgba(0,71,187,1)',
-        'bg-success': 'rgba(46,125,50,1)',
-        'bg-error': 'rgba(211,47,47,1)',
+      colors: {
         // text
         'text-primary': 'rgba(225,227,230,1)',
         'text-secondary': 'rgba(176,177,182,1)',
@@ -98,6 +90,14 @@ const config: Config = {
         'brand-orange': 'rgba(250,70,22,1)',
         'brand-white': 'rgba(255,255,255,1)',
         'brand-black': 'rgba(16,24,32,1)',
+        // bg
+        'bg-primary': 'rgba(20,20,20,1)',
+        'bg-secondary': 'rgba(35,35,36,1)',
+        'bg-tertiary': 'rgba(32,32,33,1)',
+        'bg-modal': 'rgba(48,48,48,1)',
+        'bg-accent': 'rgba(0,71,187,1)',
+        'bg-success': 'rgba(46,125,50,1)',
+        'bg-error': 'rgba(211,47,47,1)',
       },
       backgroundImage: {
         'gradient-radial':
