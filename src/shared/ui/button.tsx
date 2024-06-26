@@ -6,7 +6,7 @@ import {
 } from 'class-variance-authority';
 
 export const buttonVariants = cva(
-  'text-button transition flex items-center justify-center leading-button uppercase px-[16px] py-[10px] rounded-[4px]',
+  'text-button font-semibold transition flex items-center justify-center leading-button uppercase px-[16px] py-[10px] rounded-[4px]',
   {
     variants: {
       variant: {

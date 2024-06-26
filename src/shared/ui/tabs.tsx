@@ -27,7 +27,7 @@ export const Tabs: React.FC<TabsProps> = ({
           <button
             key={tab}
             className={cn(
-              'border-b-2 text-text-secondary cursor-pointer transition hover:text-text-primary font-semibold uppercase px-[16px] py-[10px]',
+              'border-b-2 text-text-secondary cursor-pointer transition-all hover:text-text-primary font-semibold uppercase px-[16px] py-[10px]',
               {
                 'text-text-primary border-b-border-accent':
                   tab === activeTab,

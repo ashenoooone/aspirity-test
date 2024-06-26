@@ -13,3 +13,23 @@ body {
 
 @layer utilities {
 }
+
+*::-webkit-scrollbar {
+    @apply w-2
+}
+
+*::-webkit-scrollbar-track {
+    @apply bg-bg-primary;
+}
+
+*::-webkit-scrollbar-thumb {
+    @apply bg-text-primary;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-secondary;
+}
+
+*::-webkit-scrollbar-button {
+    display: none;
+}
