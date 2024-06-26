@@ -6,6 +6,7 @@ import {
   UserPersonalInformation as TUserPersonalInformation,
   UserUpload as TUserUpload,
   UserContacts as TUserContacts,
+  UserMainInformation as TUserMainInformation,
 } from '../../types';
 import { cn } from '@/shared/utils';
 import { Box } from '@/shared/ui/box';
@@ -18,6 +19,7 @@ interface UserMainInformationProps {
   userUpload: TUserUpload;
   userDepartments: TUserDepartments;
   userContacts: TUserContacts;
+  userMainInformation: TUserMainInformation;
 }
 
 export const UserMainInformation = memo(
@@ -28,6 +30,7 @@ export const UserMainInformation = memo(
       userPersonalInformation,
       userDepartments,
       userContacts,
+      userMainInformation,
     } = props;
     return (
       <div className={cn(className, 'flex gap-4')}>
@@ -37,6 +40,7 @@ export const UserMainInformation = memo(
           }
         >
           <UserPersonalInformation
+            userMainInformation={userMainInformation}
             userPersonalInformation={
               userPersonalInformation
             }

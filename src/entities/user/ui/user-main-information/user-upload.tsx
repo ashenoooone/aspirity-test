@@ -105,7 +105,7 @@ const UserUploadTermsOfWork = ({
         >
           {userUpload['Сроки работы']['Начало']}
         </Typography>
-        <Arrow />
+        <Arrow className={'text-text-accent'} />
         <Typography
           className={'text-text-secondary'}
           variant={'body-1'}

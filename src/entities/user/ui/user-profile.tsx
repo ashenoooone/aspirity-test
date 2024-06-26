@@ -32,8 +32,9 @@ export const UserProfile = memo(
   (props: UserProfileProps) => {
     const { className = '', user } = props;
 
-    const [activeTab, setActiveTab] =
-      useState<TabsType>('Отпуск');
+    const [activeTab, setActiveTab] = useState<TabsType>(
+      'Основная информация',
+    );
 
     const onChangeActiveTab = useCallback(
       (newTab: string) => {
@@ -46,6 +47,9 @@ export const UserProfile = memo(
       if (activeTab === 'Основная информация') {
         return (
           <UserMainInformation
+            userMainInformation={
+              user['Основная информация']
+            }
             userContacts={user['Контакты']}
             userDepartments={user['Подразделение']}
             userUpload={user['Загрузка сотрудника']}
@@ -63,7 +67,7 @@ export const UserProfile = memo(
       if (activeTab === 'Оборудование') {
         return <div>Оборудование</div>;
       }
-    }, [activeTab]);
+    }, [activeTab, user]);
 
     return (
       <div className={cn(className, 'flex flex-col gap-4')}>

@@ -45,6 +45,7 @@ const config: Config = {
         yellow: '#FFB649',
         green: '#25824F',
         red: '#DB4546',
+        bg: '#232324',
         // text
         'text-primary': 'rgba(225,227,230,1)',
         'text-secondary': 'rgba(176,177,182,1)',

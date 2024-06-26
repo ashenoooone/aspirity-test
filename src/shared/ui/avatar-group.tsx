@@ -16,7 +16,7 @@ export const AvatarGroup = memo(
   (props: AvatarGroupProps) => {
     const { className = '', users, totalUsers } = props;
     return (
-      <div className={cn('flex', className)}>
+      <div className={cn('flex flex-wrap', className)}>
         {users.map((m) => {
           return (
             <Avatar
