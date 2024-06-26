@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Typography } from '@/shared/ui/typography';
 
 export default function Home() {

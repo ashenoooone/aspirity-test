@@ -22,20 +22,20 @@ export const Logo = memo((props: LogoProps) => {
       {...rest}
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M27.2095 15.5539C27.2095 19.239 24.1981 22.2222 20.4794 22.2222C16.767 22.2222 13.7544 19.239 13.7544 15.5539C13.7544 11.876 16.767 8.88892 20.4794 8.88892C24.1981 8.88892 27.2095 11.876 27.2095 15.5539Z"
         fill="#FA4616"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M0 31.1111H29.3023L14.6512 4.44446L0 31.1111Z"
         fill="#0047BB"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M17.479 9.5885C15.2714 10.6822 13.7544 12.9442 13.7544 15.5541C13.7544 19.2392 16.767 22.2224 20.4794 22.2224C21.7326 22.2224 22.9055 21.8836 23.9098 21.2934L17.479 9.5885Z"
         fill="#001A72"
       />

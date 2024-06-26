@@ -1,18 +1,18 @@
 import React, { ReactNode } from 'react';
 import { cn } from '@/shared/utils';
 
-interface PageProps {
+interface BoxProps {
   className?: string;
   children?: ReactNode;
 }
 
-export const Page = (props: PageProps) => {
+export const Box = (props: BoxProps) => {
   const { className = '', children } = props;
   return (
     <div
       className={cn(
+        'p-2 rounded-[12px] bg-[#232324]',
         className,
-        'max-w-[1920px] mx-auto flex flex-col gap-[8px]',
       )}
     >
       {children}
