@@ -7,6 +7,7 @@ import {
 } from 'react-hook-form';
 import { cn } from '@/shared/utils';
 import { Input } from '@/shared/ui/input';
+import { Button } from '@/shared/ui/button';
 
 interface UserContactsFormProps {
   className?: string;
@@ -82,6 +83,9 @@ export const UserContactsForm = memo(
             control={control}
           />
         </div>
+        {!disabled && (
+          <Button type={'submit'}>Сохранить</Button>
+        )}
       </form>
     );
   },
