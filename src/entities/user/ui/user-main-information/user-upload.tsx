@@ -4,7 +4,7 @@ import { UserUpload as TUserUpload } from '../../types';
 import { Typography } from '@/shared/ui/typography';
 import { cn } from '@/shared/utils';
 import { Button } from '@/shared/ui/button';
-import { Union } from '@/shared/assets/union';
+import { Arrow } from '@/shared/assets/arrow';
 import Avatar from '@/shared/ui/avatar';
 import { AvatarGroup } from '@/shared/ui/avatar-group';
 
@@ -105,7 +105,7 @@ const UserUploadTermsOfWork = ({
         >
           {userUpload['Сроки работы']['Начало']}
         </Typography>
-        <Union />
+        <Arrow />
         <Typography
           className={'text-text-secondary'}
           variant={'body-1'}

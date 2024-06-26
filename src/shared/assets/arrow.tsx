@@ -4,7 +4,7 @@ interface UnionProps extends ComponentProps<'svg'> {
   className?: string;
 }
 
-export const Union = memo((props: UnionProps) => {
+export const Arrow = memo((props: UnionProps) => {
   const {
     className = '',
     width = 18,

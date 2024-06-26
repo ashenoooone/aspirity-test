@@ -9,7 +9,7 @@ import {
   TableColumn,
   TableHead,
 } from '@/shared/ui/table';
-import { Union } from '@/shared/assets/union';
+import { Arrow } from '@/shared/assets/arrow';
 
 interface UserVacationHistoryProps {
   className?: string;
@@ -27,10 +27,10 @@ export const UserVacationHistory = memo(
           acc[1].push(
             <div className={'flex items-center gap-2'}>
               {v['Даты отпуска'].Начало}
-              <Union
+              <Arrow
                 className={cn({
-                  'text-yellow-400': v.Тип === 'Отпуск',
-                  'text-red-600': v.Тип === 'Отгул',
+                  'text-yellow': v.Тип === 'Отпуск',
+                  'text-red': v.Тип === 'Отгул',
                 })}
               />
               {v['Даты отпуска'].Окончание}
@@ -74,26 +74,6 @@ export const UserVacationHistory = memo(
             values={columns[2]}
           />
         </div>
-        {/*{userVacationHistory.map((v, index) => {*/}
-        {/*  return (*/}
-        {/*    <TableRow key={`tablerow${index}`}>*/}
-        {/*      <TableCell>{v.Тип}</TableCell>*/}
-        {/*      <TableCell*/}
-        {/*        className={'flex items-center gap-2'}*/}
-        {/*      >*/}
-        {/*        {v['Даты отпуска'].Начало}{' '}*/}
-        {/*        <Union*/}
-        {/*          className={cn({*/}
-        {/*            'text-yellow-400': v.Тип === 'Отпуск',*/}
-        {/*            'text-red-600': v.Тип === 'Отгул',*/}
-        {/*          })}*/}
-        {/*        />*/}
-        {/*        {v['Даты отпуска'].Окончание}*/}
-        {/*      </TableCell>*/}
-        {/*      <TableCell>{v['Количество дней']}</TableCell>*/}
-        {/*    </TableRow>*/}
-        {/*  );*/}
-        {/*})}*/}
       </Box>
     );
   },

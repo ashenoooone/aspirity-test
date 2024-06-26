@@ -41,6 +41,10 @@ const config: Config = {
         overline: '12px',
       },
       colors: {
+        // other
+        yellow: '#FFB649',
+        green: '#25824F',
+        red: '#DB4546',
         // text
         'text-primary': 'rgba(225,227,230,1)',
         'text-secondary': 'rgba(176,177,182,1)',
