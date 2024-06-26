@@ -53,7 +53,7 @@ export const UserVacationHistory = memo(
           <Typography variant={'h5'} tag={'h5'}>
             История отпусков
           </Typography>
-          <Button variant={'transparent'}>
+          <Button variant={'transparent_alternative'}>
             Посмотреть все
           </Button>
         </div>

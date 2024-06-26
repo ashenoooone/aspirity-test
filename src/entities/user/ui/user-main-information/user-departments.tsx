@@ -19,7 +19,9 @@ export const UserDepartments = memo(
           <Typography variant={'h5'} tag={'h5'}>
             Подразделения
           </Typography>
-          <Button variant={'transparent'}>Изменить</Button>
+          <Button variant={'transparent_alternative'}>
+            Изменить
+          </Button>
         </div>
         <UserDepartmentsForm
           disabled

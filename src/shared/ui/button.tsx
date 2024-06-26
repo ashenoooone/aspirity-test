@@ -11,6 +11,8 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         icon: 'p-0 hover:opacity-80',
+        transparent_alternative:
+          'text-text-tertiary hover:text-text-secondary normal-case',
         default:
           'text-text-primary bg-bg-accent hover:bg-state-blue-hover focus:bg-state-blue-focused disabled:bg-state-accent-disabled',
         outline: '',

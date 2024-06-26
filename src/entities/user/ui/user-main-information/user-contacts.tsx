@@ -19,7 +19,9 @@ export const UserContacts = memo(
           <Typography variant={'h5'} tag={'h5'}>
             Контакты
           </Typography>
-          <Button variant={'transparent'}>Изменить</Button>
+          <Button variant={'transparent_alternative'}>
+            Изменить
+          </Button>
         </div>
         <UserContactsForm
           disabled

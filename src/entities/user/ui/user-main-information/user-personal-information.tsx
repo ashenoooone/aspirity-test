@@ -29,7 +29,9 @@ export const UserPersonalInformation = memo(
             Персональная информация
           </Typography>
           {/*todo переделать кнопку*/}
-          <Button variant={'transparent'}>Изменить</Button>
+          <Button variant={'transparent_alternative'}>
+            Изменить
+          </Button>
         </div>
         <div>
           <UserPersonalInformationForm
