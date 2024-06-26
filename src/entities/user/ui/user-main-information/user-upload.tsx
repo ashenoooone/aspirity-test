@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Box } from '@/shared/ui/box';
-import { UserUpload as TUserUpload } from '../types';
+import { UserUpload as TUserUpload } from '../../types';
 import { Typography } from '@/shared/ui/typography';
 import { cn } from '@/shared/utils';
 import { Button } from '@/shared/ui/button';
@@ -41,6 +41,7 @@ const UserUploadTeam = ({
 }: {
   userUpload: TUserUpload;
 }) => {
+  // todo title для ответвенного и клик для просмотра всех участников
   return (
     <div className={'flex justify-between'}>
       <div>

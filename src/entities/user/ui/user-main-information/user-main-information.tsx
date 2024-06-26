@@ -6,11 +6,11 @@ import {
   UserPersonalInformation as TUserPersonalInformation,
   UserUpload as TUserUpload,
   UserContacts as TUserContacts,
-} from '../types';
+} from '../../types';
 import { cn } from '@/shared/utils';
 import { Box } from '@/shared/ui/box';
-import { UserDepartments } from '@/entities/user/ui/user-departments';
-import { UserContacts } from '@/entities/user/ui/user-contacts';
+import { UserDepartments } from '@/entities/user/ui/user-main-information/user-departments';
+import { UserContacts } from '@/entities/user/ui/user-main-information/user-contacts';
 
 interface UserMainInformationProps {
   className?: string;

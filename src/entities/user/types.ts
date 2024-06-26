@@ -11,9 +11,26 @@ export interface UserType {
   'Персональная информация': UserPersonalInformation;
   Подразделение: UserDepartments;
   'Основная информация': UserMainInformation;
-  Отпуск: UserVacation;
   Оборудование: UserEquipment;
   'Загрузка сотрудника': UserUpload;
+  Отпуск: UserVacation;
+}
+
+export interface UserVacation {
+  Статистика: UserVacationStatistic;
+  'История отпусков': UserVacationItem[];
+}
+
+export interface UserVacationStatistic {
+  'Доступно сейчас': number;
+  Запланировано: number;
+  'Использовано/недоступно': number;
+}
+
+export interface UserVacationItem {
+  Тип: 'Отпуск' | 'Отгул';
+  'Даты отпуска': TermsOfWork;
+  'Количество дней': number;
 }
 
 export interface UserContacts {
@@ -49,11 +66,6 @@ export interface UserMainInformation {
   Аватар: string;
 }
 
-export interface UserVacation {
-  'Дата начала': string;
-  'Дата окончания': string;
-}
-
 export interface UserEquipment {
   Ноутбук: string;
   Монитор: string;
@@ -74,6 +86,7 @@ export interface UserUploadTeam {
   Пользователи: UserShortType[];
   'Всего участников': number;
 }
+
 export interface TermsOfWork {
   Начало: string;
   Окончание: string;

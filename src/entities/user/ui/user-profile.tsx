@@ -9,7 +9,8 @@ import React, {
 import { UserType } from '@/entities/user';
 import { UserProfileHeader } from './user-profile-header';
 import { cn } from '@/shared/utils';
-import { UserMainInformation } from '@/entities/user/ui/user-main-information';
+import { UserMainInformation } from '@/entities/user/ui/user-main-information/user-main-information';
+import { UserVacation } from '@/entities/user/ui/user-vacation/user-vacation';
 
 interface UserProfileProps {
   className?: string;
@@ -31,9 +32,8 @@ export const UserProfile = memo(
   (props: UserProfileProps) => {
     const { className = '', user } = props;
 
-    const [activeTab, setActiveTab] = useState<TabsType>(
-      'Основная информация',
-    );
+    const [activeTab, setActiveTab] =
+      useState<TabsType>('Отпуск');
 
     const onChangeActiveTab = useCallback(
       (newTab: string) => {
@@ -56,7 +56,9 @@ export const UserProfile = memo(
         );
       }
       if (activeTab === 'Отпуск') {
-        return <div>Отпуск</div>;
+        return (
+          <UserVacation userVacation={user['Отпуск']} />
+        );
       }
       if (activeTab === 'Оборудование') {
         return <div>Оборудование</div>;

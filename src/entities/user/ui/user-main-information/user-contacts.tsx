@@ -1,22 +1,22 @@
 import React, { memo } from 'react';
-import { UserDepartments as TUserDepartments } from '../types';
+import { UserContacts as TUserContacts } from '../../types';
 import { cn } from '@/shared/utils';
 import { Typography } from '@/shared/ui/typography';
 import { Button } from '@/shared/ui/button';
 
-interface UserDepartmentsProps {
+interface UserContactsProps {
   className?: string;
-  userDepartments: TUserDepartments;
+  userContacts: TUserContacts;
 }
 
-export const UserDepartments = memo(
-  (props: UserDepartmentsProps) => {
-    const { className = '', userDepartments } = props;
+export const UserContacts = memo(
+  (props: UserContactsProps) => {
+    const { className = '', userContacts } = props;
     return (
       <div className={cn(className)}>
         <div className={'flex justify-between'}>
           <Typography variant={'h5'} tag={'h5'}>
-            Подразделения
+            Контакты
           </Typography>
           <Button variant={'transparent'}>Изменить</Button>
         </div>

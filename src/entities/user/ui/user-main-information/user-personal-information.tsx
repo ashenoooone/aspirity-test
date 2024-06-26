@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Box } from '@/shared/ui/box';
-import { UserPersonalInformation as TUserPersonalInformation } from '../types';
+import { UserPersonalInformation as TUserPersonalInformation } from '../../types';
 import { Typography } from '@/shared/ui/typography';
 import { cn } from '@/shared/utils';
 import { Button } from '@/shared/ui/button';
