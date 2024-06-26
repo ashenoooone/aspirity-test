@@ -12,7 +12,7 @@ export const Page = (props: PageProps) => {
     <div
       className={cn(
         className,
-        'max-w-[1920px] mx-auto flex flex-col gap-[8px]',
+        'max-w-[1494px] mx-auto flex flex-col gap-[8px]',
       )}
     >
       {children}

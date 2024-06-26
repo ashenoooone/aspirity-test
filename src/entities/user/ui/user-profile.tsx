@@ -9,6 +9,7 @@ import React, {
 import { UserType } from '@/entities/user';
 import { UserProfileHeader } from './user-profile-header';
 import { cn } from '@/shared/utils';
+import { UserMainInformation } from '@/entities/user/ui/user-main-information';
 
 interface UserProfileProps {
   className?: string;
@@ -43,7 +44,16 @@ export const UserProfile = memo(
 
     const content = useMemo(() => {
       if (activeTab === 'Основная информация') {
-        return <div>Основная информация</div>;
+        return (
+          <UserMainInformation
+            userContacts={user['Контакты']}
+            userDepartments={user['Подразделение']}
+            userUpload={user['Загрузка сотрудника']}
+            userPersonalInformation={
+              user['Персональная информация']
+            }
+          />
+        );
       }
       if (activeTab === 'Отпуск') {
         return <div>Отпуск</div>;
