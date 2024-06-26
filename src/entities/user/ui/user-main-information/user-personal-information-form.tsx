@@ -10,6 +10,7 @@ import {
 } from 'react-hook-form';
 import { Input } from '@/shared/ui/input';
 import { cn } from '@/shared/utils';
+import { Button } from '@/shared/ui/button';
 
 interface UserPersonalInformationFormProps {
   className?: string;
@@ -162,6 +163,9 @@ export const UserPersonalInformationForm = memo(
           name={'Номер счета'}
           control={control}
         />
+        {!disabled && (
+          <Button type={'submit'}>Сохранить</Button>
+        )}
       </form>
     );
   },
