@@ -33,7 +33,9 @@ export const UserMainInformation = memo(
       userMainInformation,
     } = props;
     return (
-      <div className={cn(className, 'flex gap-4')}>
+      <div
+        className={cn(className, 'flex gap-4 items-start')}
+      >
         <Box
           className={
             'max-w-[820px] gap-10 flex flex-col flex-shrink-0 w-full p-[30px]'

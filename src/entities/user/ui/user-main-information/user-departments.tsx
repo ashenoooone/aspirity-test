@@ -3,6 +3,7 @@ import { UserDepartments as TUserDepartments } from '../../types';
 import { cn } from '@/shared/utils';
 import { Typography } from '@/shared/ui/typography';
 import { Button } from '@/shared/ui/button';
+import { UserDepartmentsForm } from './user-departments-form';
 
 interface UserDepartmentsProps {
   className?: string;
@@ -14,12 +15,16 @@ export const UserDepartments = memo(
     const { className = '', userDepartments } = props;
     return (
       <div className={cn(className)}>
-        <div className={'flex justify-between'}>
+        <div className={'flex justify-between mb-8'}>
           <Typography variant={'h5'} tag={'h5'}>
             Подразделения
           </Typography>
           <Button variant={'transparent'}>Изменить</Button>
         </div>
+        <UserDepartmentsForm
+          disabled
+          userDepartments={userDepartments}
+        />
       </div>
     );
   },
