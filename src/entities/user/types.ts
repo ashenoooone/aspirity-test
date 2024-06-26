@@ -1,3 +1,11 @@
+export type UserShortType = {
+  id: string;
+  Имя: string;
+  Фамилия: string;
+  Отчество: string;
+  Аватар: string;
+};
+
 export interface UserType {
   Контакты: UserContacts;
   'Персональная информация': UserPersonalInformation;
@@ -54,11 +62,12 @@ export interface UserEquipment {
 }
 
 export interface UserUpload {
-  Руководитель: string;
+  Ответственный: UserShortType;
   'Название проекта': string;
   'Тип проекта': string;
-  Команда: string;
+  Команда: UserShortType[];
   'Сроки работы': TermsOfWork;
+  'Процент загрузки': number;
 }
 
 export interface TermsOfWork {
