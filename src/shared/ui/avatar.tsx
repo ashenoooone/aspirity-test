@@ -19,7 +19,9 @@ export type AvatarSize =
 interface AvatarProps extends ImageProps {
   className?: string;
   size: AvatarSize;
-  fallback?: string;
+  fallback?: string | number;
+  fallbackClassnames?: string;
+  title?: string;
 }
 
 export const Avatar = memo((props: AvatarProps) => {
@@ -28,6 +30,8 @@ export const Avatar = memo((props: AvatarProps) => {
     src,
     size,
     fallback = 'Image not available',
+    fallbackClassnames = '',
+    title,
     ...rest
   } = props;
   const [imgError, setImgError] = useState(false);
@@ -50,8 +54,9 @@ export const Avatar = memo((props: AvatarProps) => {
 
   return (
     <div
+      title={title}
       className={cn(
-        'relative',
+        'relative rounded-full',
         sizeClasses[size],
         className,
       )}
@@ -66,7 +71,12 @@ export const Avatar = memo((props: AvatarProps) => {
           {...rest}
         />
       ) : (
-        <div className="flex rounded-full items-center justify-center w-full h-full bg-gray-200 text-gray-500 text-sm">
+        <div
+          className={cn(
+            'flex rounded-full items-center justify-center w-full h-full bg-gray-200 text-gray-500 text-sm',
+            fallbackClassnames,
+          )}
+        >
           {fallback}
         </div>
       )}

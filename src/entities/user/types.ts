@@ -65,11 +65,15 @@ export interface UserUpload {
   Ответственный: UserShortType;
   'Название проекта': string;
   'Тип проекта': string;
-  Команда: UserShortType[];
+  Команда: UserUploadTeam;
   'Сроки работы': TermsOfWork;
   'Процент загрузки': number;
 }
 
+export interface UserUploadTeam {
+  Пользователи: UserShortType[];
+  'Всего участников': number;
+}
 export interface TermsOfWork {
   Начало: string;
   Окончание: string;
