@@ -8,7 +8,7 @@ import { Info } from '@/shared/assets/info';
 import { Button } from '@/shared/ui/button';
 import { UserVacationChart } from '@/entities/user/ui/user-vacation/user-vacation-chart';
 import { UserVacationStatisticItem } from '@/entities/user/ui/user-vacation/user-vacation-statistic-item';
-import { retry } from 'next/dist/compiled/@next/font/dist/google/retry';
+import { useMediaQuery } from '@siberiacancode/reactuse';
 
 interface UserVacationStatisticProps {
   className?: string;
@@ -18,6 +18,7 @@ interface UserVacationStatisticProps {
 export const UserVacationStatistic = memo(
   (props: UserVacationStatisticProps) => {
     const { className = '', userVacationStatistic } = props;
+    const matches = useMediaQuery('(max-width: 1280px)');
     const [currentHoveredItem, setCurrentHoveredItem] =
       useState<keyof TUserVacationStatistic | undefined>(
         undefined,
@@ -43,7 +44,7 @@ export const UserVacationStatistic = memo(
             Статистика
           </Typography>
           <Tooltip
-            direction={'right'}
+            direction={matches ? 'top-center' : 'right'}
             content={
               <Typography
                 variant={'subtitle-2'}

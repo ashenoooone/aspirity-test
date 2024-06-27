@@ -17,6 +17,8 @@ import {
 } from '@/shared/ui/table';
 import { Arrow } from '@/shared/assets/arrow';
 import { UserVacationHistoryModal } from '@/entities/user/ui/user-vacation/user-vacation-history-modal';
+import { UserVacationHistoryItem } from '@/entities/user/ui/user-vacation/user-vacation-history-item';
+import { Separator } from '@/shared/ui/separator';
 
 interface UserVacationHistoryProps {
   className?: string;
@@ -66,13 +68,23 @@ export const UserVacationHistory = memo(
     }, [userVacationHistory]);
 
     return (
-      <Box className={cn(className, 'p-[30px]')}>
+      <Box
+        className={cn(
+          className,
+          'xl:p-[30px] py-[30px] px-4',
+        )}
+      >
         <div
           className={
             'flex justify-between items-center mb-4'
           }
         >
-          <Typography variant={'h5'} tag={'h5'}>
+          <Typography
+            className={
+              'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
+            }
+            tag={'h5'}
+          >
             История отпусков
           </Typography>
           <Button
@@ -82,7 +94,8 @@ export const UserVacationHistory = memo(
             Посмотреть все
           </Button>
         </div>
-        <div className={'flex'}>
+        {/*1280px+*/}
+        <div className={'lg:flex hidden'}>
           <TableColumn
             className={'basis-2/5'}
             header={'Тип'}
@@ -104,6 +117,18 @@ export const UserVacationHistory = memo(
           onCloseModalHandler={onCloseModalHandler}
           userVacationHistory={userVacationHistory}
         />
+        {/*  1280px-*/}
+        <div className={'xl:hidden flex flex-col gap-4'}>
+          {userVacationHistory.map((item, index) => (
+            <>
+              {index !== 0 && <Separator />}
+              <UserVacationHistoryItem
+                key={index}
+                item={item}
+              />
+            </>
+          ))}
+        </div>
       </Box>
     );
   },

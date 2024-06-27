@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.1.1",
+    "@siberiacancode/reactuse": "^0.0.41",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

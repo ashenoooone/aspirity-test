@@ -7,7 +7,13 @@ import { cn } from '@/shared/utils';
 
 type OmitDivProps = Omit<ComponentProps<'div'>, 'content'>;
 
-type TooltipDirection = 'top' | 'right' | 'bottom' | 'left';
+type TooltipDirection =
+  | 'top'
+  | 'top-left'
+  | 'top-center'
+  | 'right'
+  | 'bottom'
+  | 'left';
 
 interface TooltipProps extends OmitDivProps {
   content: ReactNode;
@@ -59,6 +65,10 @@ export const Tooltip = (props: TooltipProps) => {
             {
               'bottom-[calc(100%+7px)]':
                 direction === 'top',
+              'bottom-[calc(100%+7px)] right-full':
+                direction === 'top-left',
+              'bottom-[calc(100%+7px)] right-1/2 translate-x-1/2':
+                direction === 'top-center',
               'left-[calc(100%+7px)] top-0 -translate-y-1/2':
                 direction === 'right',
               'top-[calc(100%+7px)]':
