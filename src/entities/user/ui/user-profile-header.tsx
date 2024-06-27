@@ -25,7 +25,7 @@ export const UserProfileHeader = memo(
     } = props;
     return (
       <Box className={cn('flex p-10', className)}>
-        <div className={'flex flex-col items-center gap-2'}>
+        <div className={'flex flex-col gap-2'}>
           {/*---*/}
           <div className={'flex items-center gap-12'}>
             <Avatar
@@ -40,7 +40,7 @@ export const UserProfileHeader = memo(
             </Typography>
           </div>
           {/*---*/}
-          <div>
+          <div className={'ml-52'}>
             <Typography variant={'body-1'}>
               {userMainInformation['Должность']}
             </Typography>

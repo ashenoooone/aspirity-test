@@ -44,7 +44,7 @@ export const Button = memo((props: ButtonProps) => {
   return (
     <button
       type={type}
-      className={cn(className, buttonVariants({ variant }))}
+      className={cn(buttonVariants({ variant }), className)}
       {...rest}
     >
       {children}

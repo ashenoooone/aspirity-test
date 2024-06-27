@@ -3,6 +3,7 @@ import { cn } from '@/shared/utils';
 import { Logo } from '@/shared/assets/logo';
 import { Button } from '@/shared/ui/button';
 import { Burger } from '@/shared/assets/burger';
+import Link from 'next/link';
 
 interface HeaderProps {
   className?: string;
@@ -17,7 +18,9 @@ export const Header = memo((props: HeaderProps) => {
         'px-[16px] py-[24px] flex justify-between',
       )}
     >
-      <Logo />
+      <Link href={'/'}>
+        <Logo />
+      </Link>
       <div className={'flex'}>
         <Button className={'mr-[8px]'}>создать счет</Button>
         <Button className={'mr-[8px]'}>корзина</Button>
