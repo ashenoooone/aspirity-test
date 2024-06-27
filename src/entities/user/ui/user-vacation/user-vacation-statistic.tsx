@@ -6,6 +6,7 @@ import { Typography } from '@/shared/ui/typography';
 import { Tooltip } from '@/shared/ui/tooltip';
 import { Info } from '@/shared/assets/info';
 import { Button } from '@/shared/ui/button';
+import { UserVacationChart } from '@/entities/user/ui/user-vacation/user-vacation-chart';
 
 interface UserVacationStatisticProps {
   className?: string;
@@ -18,7 +19,7 @@ export const UserVacationStatistic = memo(
 
     return (
       <Box className={cn(className, 'p-[30px]')}>
-        <div className={'flex gap-2 items-center'}>
+        <div className={'flex gap-2 items-center mb-4'}>
           <Typography variant={'h5'} tag={'h5'}>
             Статистика
           </Typography>
@@ -37,6 +38,11 @@ export const UserVacationStatistic = memo(
                 <Info />
               </Button>
             }
+          />
+        </div>
+        <div className={'flex flex-col items-center'}>
+          <UserVacationChart
+            statistic={userVacationStatistic}
           />
         </div>
       </Box>
