@@ -8,6 +8,9 @@ import { UserVacationItem } from '@/entities/user';
 import { Arrow } from '@/shared/assets/arrow';
 import { cn } from '@/shared/utils';
 import { TableColumn } from '@/shared/ui/table';
+import { Separator } from '@/shared/ui/separator';
+import { UserVacationHistoryItem } from '@/entities/user/ui/user-vacation/user-vacation-history-item';
+import { UserVacationHistoryList } from '@/entities/user/ui/user-vacation/user-vacation-history-list';
 
 interface UserVacationHistoryModalProps {
   className?: string;
@@ -25,31 +28,6 @@ export const UserVacationHistoryModal = memo(
       onCloseModalHandler,
     } = props;
 
-    const columns: ReactNode[][] = useMemo(() => {
-      return userVacationHistory.reduce(
-        (acc, v) => {
-          acc[0].push(v['Тип']);
-          acc[1].push(
-            <div className={'flex items-center gap-2'}>
-              {v['Даты отпуска'].Начало}
-              <Arrow
-                className={cn({
-                  'text-yellow': v.Тип === 'Отпуск',
-                  'text-red':
-                    v.Тип === 'Отгул' ||
-                    v.Тип === 'Больничный',
-                })}
-              />
-              {v['Даты отпуска'].Окончание}
-            </div>,
-          );
-          acc[2].push(v['Количество дней']);
-          return acc;
-        },
-        [[], [], []] as ReactNode[][],
-      );
-    }, [userVacationHistory]);
-
     return (
       <Modal
         className={'max-w-[824px] w-full'}
@@ -58,10 +36,15 @@ export const UserVacationHistoryModal = memo(
       >
         <div
           className={
-            'flex items-center justify-between mb-10'
+            'flex items-center justify-between xl:mb-10 mb-4'
           }
         >
-          <Typography tag={'h4'} variant={'h4'}>
+          <Typography
+            tag={'h4'}
+            className={
+              'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
+            }
+          >
             История отпусков
           </Typography>
           <Button
@@ -71,23 +54,9 @@ export const UserVacationHistoryModal = memo(
             <Cross />
           </Button>
         </div>
-        <div className={'flex'}>
-          <TableColumn
-            className={'basis-2/5'}
-            header={'Тип'}
-            values={columns[0]}
-          />
-          <TableColumn
-            className={'basis-2/5'}
-            header={'Даты отпуска'}
-            values={columns[1]}
-          />
-          <TableColumn
-            className={'basis-1/5 text-right'}
-            header={'Количество дней'}
-            values={columns[2]}
-          />
-        </div>
+        <UserVacationHistoryList
+          userVacationHistory={userVacationHistory}
+        />
       </Modal>
     );
   },
