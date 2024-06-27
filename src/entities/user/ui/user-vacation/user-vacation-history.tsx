@@ -50,7 +50,9 @@ export const UserVacationHistory = memo(
               <Arrow
                 className={cn({
                   'text-yellow': v.Тип === 'Отпуск',
-                  'text-red': v.Тип === 'Отгул',
+                  'text-red':
+                    v.Тип === 'Отгул' ||
+                    v.Тип === 'Больничный',
                 })}
               />
               {v['Даты отпуска'].Окончание}

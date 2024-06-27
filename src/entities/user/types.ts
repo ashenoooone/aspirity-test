@@ -28,7 +28,7 @@ export interface UserVacationStatistic {
 }
 
 export interface UserVacationItem {
-  Тип: 'Отпуск' | 'Отгул';
+  Тип: 'Отпуск' | 'Отгул' | 'Больничный';
   'Даты отпуска': TermsOfWork;
   'Количество дней': number;
 }
