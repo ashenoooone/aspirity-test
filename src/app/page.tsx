@@ -14,9 +14,18 @@ export default function Home() {
           тестового задания!
         </Typography>
         <div className={'flex flex-col gap-2 mt-3'}>
-          <Link href={'profile/1'}>Профиль 1</Link>
-          <Link href={'profile/2'}>Профиль 2</Link>
-          <Link href={'profile/3'}>Профиль 3</Link>
+          <Typography variant={'h5'}>
+            Профили немного отличаются данными
+          </Typography>
+          <Link className={'w-max'} href={'profile/1'}>
+            Профиль 1
+          </Link>
+          <Link className={'w-max'} href={'profile/2'}>
+            Профиль 2
+          </Link>
+          <Link className={'w-max'} href={'profile/3'}>
+            Профиль 3
+          </Link>
         </div>
       </Box>
       <Box className={'p-[30px]'}>
@@ -142,7 +151,7 @@ export default function Home() {
           <div className={'flex items-center gap-2'}>
             <Dot />
             <Typography variant={'h6'}>
-              Вкладка "ОТПУСКА" профиля
+              Вкладка "ОБОРУДОВАНИЕ" профиля
             </Typography>
           </div>
           <div className={'pl-10 flex flex-col gap-2'}>
