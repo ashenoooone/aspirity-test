@@ -6,10 +6,10 @@ export function formatDays(count: number): string {
 
   switch (pluralForm) {
     case 'one':
-      return `${count} день`;
+      return `день`;
     case 'few':
-      return `${count} дня`;
+      return `дня`;
     default:
-      return `${count} дней`;
+      return `дней`;
   }
 }

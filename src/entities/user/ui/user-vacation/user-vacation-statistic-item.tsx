@@ -45,7 +45,7 @@ export const UserVacationStatisticItem = memo(
           </Typography>
         </div>
         <Typography variant={'body-1'}>
-          {formatDays(number)}
+          {number} {formatDays(number)}
         </Typography>
       </div>
     );

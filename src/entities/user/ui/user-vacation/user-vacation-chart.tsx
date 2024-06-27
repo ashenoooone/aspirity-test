@@ -4,6 +4,7 @@ import { Pie, Cell, PieChart } from 'recharts';
 import { cn } from '@/shared/utils';
 import { Typography } from '@/shared/ui/typography';
 import entry from 'next/dist/server/typescript/rules/entry';
+import { formatDays } from '@/shared/utils/formatDays';
 
 interface UserVacationChartProps {
   className?: string;
@@ -82,7 +83,9 @@ export const UserVacationChart = memo(
             variant={'subtitle-2'}
             className={'text-text-tertiary'}
           >
-            дня
+            {formatDays(
+              statistic?.['Доступно сейчас'] ?? 0,
+            )}
           </Typography>
         </div>
         <PieChart width={160} height={160}>
