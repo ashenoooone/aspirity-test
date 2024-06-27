@@ -8,18 +8,25 @@ interface AvatarGroupProps {
   className?: string;
   users: UserShortType[];
   totalUsers: number;
+  onClickRest?: () => void;
 }
 
 const MAX_MEMBERS = 99;
 
 export const AvatarGroup = memo(
   (props: AvatarGroupProps) => {
-    const { className = '', users, totalUsers } = props;
+    const {
+      className = '',
+      users,
+      onClickRest,
+      totalUsers,
+    } = props;
     return (
       <div className={cn('flex flex-wrap', className)}>
-        {users.map((m) => {
+        {users.slice(0, 7).map((m) => {
           return (
             <Avatar
+              key={`${m.Имя} ${m.Фамилия} ${m.Отчество}`}
               title={`${m.Имя} ${m.Фамилия} ${m.Отчество}`}
               size={'48'}
               src={m.Аватар}
@@ -33,16 +40,20 @@ export const AvatarGroup = memo(
         })}
         {users.length < totalUsers && (
           <Avatar
+            onClick={onClickRest}
             size={'48'}
-            src={''}
             alt={`${
               totalUsers - users.length > MAX_MEMBERS
                 ? MAX_MEMBERS
                 : totalUsers - users.length
             }`}
-            fallbackClassnames={
-              'text-body-1 leading-body-1 text-text-primary bg-transparent'
-            }
+            fallbackClassnames={cn(
+              'text-body-1 leading-body-1 text-text-primary bg-transparent',
+              {
+                'cursor-pointer hover:text-text-secondary':
+                  onClickRest,
+              },
+            )}
             fallback={`+${
               totalUsers - users.length > MAX_MEMBERS
                 ? MAX_MEMBERS

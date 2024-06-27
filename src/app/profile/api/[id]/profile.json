@@ -101,56 +101,64 @@
           "Имя": "Иван",
           "Фамилия": "Иванов",
           "Отчество": "Иванович",
-          "Аватар": "https://randomuser.me/api/portraits/women/1.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/1.jpg",
+          "Роль": "Администратор"
         },
         {
           "id": "2",
           "Имя": "Петр",
           "Фамилия": "Петров",
           "Отчество": "Петрович",
-          "Аватар": "https://randomuser.me/api/portraits/women/2.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/2.jpg",
+          "Роль": "QA Lead"
         },
         {
           "id": "3",
           "Имя": "Мария",
           "Фамилия": "Сидорова",
           "Отчество": "Ивановна",
-          "Аватар": "https://randomuser.me/api/portraits/women/3.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/3.jpg",
+          "Роль": "Junior UI/UX designer"
         },
         {
           "id": "4",
           "Имя": "Александр",
           "Фамилия": "Смирнов",
           "Отчество": "Александрович",
-          "Аватар": "https://randomuser.me/api/portraits/women/4.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/4.jpg",
+          "Роль": "Middle Product Design TeamLead"
         },
         {
           "id": "5",
           "Имя": "Елена",
           "Фамилия": "Козлова",
           "Отчество": "Петровна",
-          "Аватар": "https://randomuser.me/api/portraits/women/5.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/5.jpg",
+          "Роль": "Middle Sales Manager"
         },
         {
           "id": "6",
           "Имя": "Дмитрий",
           "Фамилия": "Иванов",
           "Отчество": "Дмитриевич",
-          "Аватар": "https://randomuser.me/api/portraits/women/6.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/6.jpg",
+          "Роль": "Junior Employee Support Manager"
         },
         {
           "id": "7",
           "Имя": "Ольга",
           "Фамилия": "Николаева",
           "Отчество": "Олеговна",
-          "Аватар": "https://randomuser.me/api/portraits/women/7.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/7.jpg",
+          "Роль": "Middle Android Developer"
         },
         {
           "id": "8",
           "Имя": "Сергей",
           "Фамилия": "Петров",
           "Отчество": "Сергеевич",
-          "Аватар": "https://randomuser.me/api/portraits/women/8.jpg"
+          "Аватар": "https://randomuser.me/api/portraits/women/8.jpg",
+          "Роль": "Middle Head of Service"
         }
       ],
       "Всего участников": 10

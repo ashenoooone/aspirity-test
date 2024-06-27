@@ -2,6 +2,7 @@
 import React, { memo, useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 import { cn } from '@/shared/utils';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export type AvatarSize =
   | '160'
@@ -16,12 +17,15 @@ export type AvatarSize =
   | '32'
   | '24';
 
-interface AvatarProps extends ImageProps {
+type OmitedImageProps = Omit<ImageProps, 'src'>;
+
+interface AvatarProps extends OmitedImageProps {
   className?: string;
   size: AvatarSize;
   fallback?: string | number;
   fallbackClassnames?: string;
   title?: string;
+  src?: string | StaticImport;
 }
 
 export const Avatar = memo((props: AvatarProps) => {
@@ -32,6 +36,7 @@ export const Avatar = memo((props: AvatarProps) => {
     fallback = 'Image not available',
     fallbackClassnames = '',
     title,
+    onClick,
     ...rest
   } = props;
   const [imgError, setImgError] = useState(false);
@@ -54,6 +59,7 @@ export const Avatar = memo((props: AvatarProps) => {
 
   return (
     <div
+      onClick={onClick}
       title={title}
       className={cn(
         'relative flex-shrink-0 rounded-full',
@@ -61,7 +67,7 @@ export const Avatar = memo((props: AvatarProps) => {
         className,
       )}
     >
-      {!imgError ? (
+      {!imgError && src !== undefined ? (
         <Image
           src={src}
           onError={handleError}

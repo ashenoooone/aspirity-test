@@ -4,6 +4,7 @@ export type UserShortType = {
   Фамилия: string;
   Отчество: string;
   Аватар: string;
+  Роль: string;
 };
 
 export interface UserType {

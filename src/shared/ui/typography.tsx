@@ -34,7 +34,15 @@ export const typographyVariants = cva('', {
 export interface TypographyProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof typographyVariants> {
-  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  tag?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p'
+    | 'span';
 }
 
 export const Typography = React.forwardRef<

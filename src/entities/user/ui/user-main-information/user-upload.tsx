@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { Box } from '@/shared/ui/box';
 import { UserUpload as TUserUpload } from '../../types';
 import { Typography } from '@/shared/ui/typography';
@@ -7,6 +7,7 @@ import { Button } from '@/shared/ui/button';
 import { Arrow } from '@/shared/assets/arrow';
 import Avatar from '@/shared/ui/avatar';
 import { AvatarGroup } from '@/shared/ui/avatar-group';
+import { UserTeamModal } from '@/entities/user/ui/user-main-information/user-team-modal';
 
 interface UserUploadProps {
   className?: string;
@@ -51,6 +52,17 @@ const UserUploadTeam = ({
   userUpload: TUserUpload;
 }) => {
   // todo title для ответвенного и клик для просмотра всех участников
+  const [isModalOpen, setIsModalOpen] =
+    useState<boolean>(false);
+
+  const onCloseModalHandler = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+
+  const onOpenModalHandler = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
+
   return (
     <div
       className={
@@ -68,6 +80,7 @@ const UserUploadTeam = ({
           className={'flex items-center gap-2 xl:mb-0 mb-4'}
         >
           <Avatar
+            title={`${userUpload.Ответственный.Фамилия} ${userUpload.Ответственный.Имя} ${userUpload.Ответственный.Отчество}`}
             fallback={userUpload.Ответственный.Имя.slice(
               0,
               2,
@@ -90,10 +103,16 @@ const UserUploadTeam = ({
           Команда
         </Typography>
         <AvatarGroup
+          onClickRest={onOpenModalHandler}
           users={userUpload.Команда.Пользователи}
           totalUsers={
             userUpload.Команда['Всего участников']
           }
+        />
+        <UserTeamModal
+          isOpen={isModalOpen}
+          onClose={onCloseModalHandler}
+          userTeam={userUpload.Команда.Пользователи}
         />
       </div>
     </div>
