@@ -27,7 +27,7 @@ export const UserVacationStatisticItem = memo(
     return (
       <div
         className={cn(
-          'border px-[10px] py-3 rounded-[16px] border-border-primary flex justify-between',
+          'border hover:border-icon-primary px-[10px] py-3 rounded-[16px] border-border-primary flex justify-between',
           className,
         )}
         {...rest}

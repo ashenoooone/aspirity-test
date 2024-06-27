@@ -13,7 +13,9 @@ export const UserVacation = memo(
   (props: UserVacationProps) => {
     const { className = '', userVacation } = props;
     return (
-      <div className={cn(className, 'flex gap-4')}>
+      <div
+        className={cn(className, 'flex gap-4 items-start')}
+      >
         <UserVacationStatistic
           className={'basis-1/3'}
           userVacationStatistic={userVacation['Статистика']}
