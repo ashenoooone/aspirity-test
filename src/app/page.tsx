@@ -3,6 +3,7 @@ import React from 'react';
 import { Box } from '@/shared/ui/box';
 import { Typography } from '@/shared/ui/typography';
 import { Dot } from '@/shared/assets/dot';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -12,6 +13,11 @@ export default function Home() {
           Привет 👋 Меня зовут Роман, вот моя реализация
           тестового задания!
         </Typography>
+        <div className={'flex flex-col gap-2 mt-3'}>
+          <Link href={'profile/1'}>Профиль 1</Link>
+          <Link href={'profile/2'}>Профиль 2</Link>
+          <Link href={'profile/3'}>Профиль 3</Link>
+        </div>
       </Box>
       <Box className={'p-[30px]'}>
         <Typography variant={'h5'}>

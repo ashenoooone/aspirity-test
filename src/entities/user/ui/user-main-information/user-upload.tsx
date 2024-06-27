@@ -24,10 +24,10 @@ const UserUploadHeader = (props: {
       <Typography
         variant={'body-2'}
         className={cn({
-          'text-[#D77556]': props.percentage >= 80,
-          'text-yellow-400':
+          'text-red': props.percentage >= 80,
+          'text-yellow':
             props.percentage < 80 && props.percentage >= 50,
-          'text-green-400': props.percentage < 50,
+          'text-green': props.percentage < 50,
         })}
       >
         {props.percentage}%
