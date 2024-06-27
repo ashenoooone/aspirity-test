@@ -3,10 +3,12 @@ import { UserVacationStatistic } from '@/entities/user';
 import { Pie, Cell, PieChart } from 'recharts';
 import { cn } from '@/shared/utils';
 import { Typography } from '@/shared/ui/typography';
+import entry from 'next/dist/server/typescript/rules/entry';
 
 interface UserVacationChartProps {
   className?: string;
   statistic?: UserVacationStatistic;
+  hoveredItem?: keyof UserVacationStatistic;
 }
 
 type DataType = {
@@ -23,33 +25,27 @@ const data: {
   {
     name: 'Доступно сейчас',
     value: 400,
-    color: 'fill-green',
+    color: 'green',
   },
   {
     name: 'Запланировано',
     value: 300,
-    color: 'fill-yellow',
+    color: 'yellow',
   },
   {
     name: 'Использовано/недоступно',
     value: 200,
-    color: 'fill-red',
+    color: 'red',
   },
 ];
 
 export const UserVacationChart = memo(
   (props: UserVacationChartProps) => {
-    const { className = '', statistic } = props;
-
-    const totalDays = useMemo(() => {
-      if (!statistic) return 0;
-      return Object.values(statistic).reduce(
-        (acc, item) => {
-          return acc + item;
-        },
-        0,
-      );
-    }, [statistic]);
+    const {
+      className = '',
+      hoveredItem,
+      statistic,
+    } = props;
 
     const data: DataType = useMemo(() => {
       if (!statistic) return [];
@@ -57,17 +53,17 @@ export const UserVacationChart = memo(
         {
           name: 'Доступно сейчас',
           value: statistic['Доступно сейчас'],
-          color: 'fill-green',
+          color: 'green',
         },
         {
           name: 'Запланировано',
           value: statistic.Запланировано,
-          color: 'fill-yellow',
+          color: 'yellow',
         },
         {
           name: 'Использовано/недоступно',
           value: statistic['Использовано/недоступно'],
-          color: 'fill-red',
+          color: 'red',
         },
       ];
     }, [statistic]);
@@ -80,7 +76,7 @@ export const UserVacationChart = memo(
           }
         >
           <Typography variant={'h4'} tag={'h4'}>
-            {totalDays}
+            {statistic?.['Доступно сейчас']}
           </Typography>
           <Typography
             variant={'subtitle-2'}
@@ -97,11 +93,23 @@ export const UserVacationChart = memo(
             strokeWidth={0}
             className={'border-none'}
             dataKey="value"
+            paddingAngle={2}
           >
             {data.map((entry, index) => (
+              // со stroke-width стремное решение, но иного не смог найти
               <Cell
                 key={`cell-${index}`}
-                className={entry.color}
+                stroke={'currentColor'}
+                strokeWidth={
+                  entry.name === hoveredItem ? 5 : 0
+                }
+                className={cn(
+                  `fill-${entry.color} text-${entry.color}`,
+                  {
+                    'z-10': entry.name === hoveredItem,
+                  },
+                  'font-medium',
+                )}
               />
             ))}
           </Pie>

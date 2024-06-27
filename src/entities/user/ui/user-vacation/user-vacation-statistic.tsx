@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { UserVacationStatistic as TUserVacationStatistic } from '../../types';
 import { Box } from '@/shared/ui/box';
 import { cn } from '@/shared/utils';
@@ -7,6 +7,8 @@ import { Tooltip } from '@/shared/ui/tooltip';
 import { Info } from '@/shared/assets/info';
 import { Button } from '@/shared/ui/button';
 import { UserVacationChart } from '@/entities/user/ui/user-vacation/user-vacation-chart';
+import { UserVacationStatisticItem } from '@/entities/user/ui/user-vacation/user-vacation-statistic-item';
+import { retry } from 'next/dist/compiled/@next/font/dist/google/retry';
 
 interface UserVacationStatisticProps {
   className?: string;
@@ -16,6 +18,23 @@ interface UserVacationStatisticProps {
 export const UserVacationStatistic = memo(
   (props: UserVacationStatisticProps) => {
     const { className = '', userVacationStatistic } = props;
+    const [currentHoveredItem, setCurrentHoveredItem] =
+      useState<keyof TUserVacationStatistic | undefined>(
+        undefined,
+      );
+
+    const handleChangeCurrentHoveredItem = useCallback(
+      (
+        newHoveredItem:
+          | keyof TUserVacationStatistic
+          | undefined,
+      ) => {
+        return () => {
+          setCurrentHoveredItem(newHoveredItem);
+        };
+      },
+      [],
+    );
 
     return (
       <Box className={cn(className, 'p-[30px]')}>
@@ -40,9 +59,51 @@ export const UserVacationStatistic = memo(
             }
           />
         </div>
-        <div className={'flex flex-col items-center'}>
+        <div className={'flex flex-col items-center mb-16'}>
           <UserVacationChart
+            hoveredItem={currentHoveredItem}
             statistic={userVacationStatistic}
+          />
+        </div>
+        <div className={'flex flex-col gap-2'}>
+          <UserVacationStatisticItem
+            onMouseEnter={handleChangeCurrentHoveredItem(
+              'Доступно сейчас',
+            )}
+            onMouseLeave={handleChangeCurrentHoveredItem(
+              undefined,
+            )}
+            dotColor={'green'}
+            title={'Доступно сейчас'}
+            number={
+              userVacationStatistic['Доступно сейчас']
+            }
+          />
+          <UserVacationStatisticItem
+            onMouseEnter={handleChangeCurrentHoveredItem(
+              'Запланировано',
+            )}
+            onMouseLeave={handleChangeCurrentHoveredItem(
+              undefined,
+            )}
+            dotColor={'yellow'}
+            title={'Запланировано'}
+            number={userVacationStatistic['Запланировано']}
+          />
+          <UserVacationStatisticItem
+            onMouseEnter={handleChangeCurrentHoveredItem(
+              'Использовано/недоступно',
+            )}
+            onMouseLeave={handleChangeCurrentHoveredItem(
+              undefined,
+            )}
+            dotColor={'red'}
+            title={'Использовано/недоступно'}
+            number={
+              userVacationStatistic[
+                'Использовано/недоступно'
+              ]
+            }
           />
         </div>
       </Box>
