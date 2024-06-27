@@ -6,7 +6,6 @@ import {
 import { Typography } from '@/shared/ui/typography';
 import { cn } from '@/shared/utils';
 import { Button } from '@/shared/ui/button';
-import { Input } from '@/shared/ui/input';
 import { UserPersonalInformationForm } from '@/entities/user/ui/user-main-information/user-personal-information-form';
 import { Modal } from '@/shared/ui/modal';
 import { Cross } from '@/shared/assets/cross';
@@ -41,7 +40,6 @@ export const UserPersonalInformation = memo(
           <Typography variant={'h5'} tag={'h5'}>
             Персональная информация
           </Typography>
-          {/*todo переделать кнопку*/}
           <Button
             onClick={onOpenModalHandler}
             variant={'transparent_alternative'}

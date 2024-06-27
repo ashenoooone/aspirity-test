@@ -1,4 +1,6 @@
 import { UserProfile, UserType } from '@/entities/user';
+import { getAllCountries } from '@/entities/countries/api';
+import { useCountriesStore } from '@/entities/countries/countries.store';
 
 const getProfileFromServer = async ({
   id,
@@ -23,12 +25,22 @@ export default async function ProfilePage({
 }: {
   params: { id: number };
 }) {
-  const profile = await getProfileFromServer({
+  const profileData = getProfileFromServer({
     id: params.id,
   });
+  const countriesData = getAllCountries();
+
+  const [profile, countries] = await Promise.all([
+    profileData,
+    countriesData,
+  ]);
+
   return (
     <div>
-      <UserProfile user={profile.profile} />
+      <UserProfile
+        countries={countries}
+        user={profile.profile}
+      />
     </div>
   );
 }

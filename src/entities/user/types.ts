@@ -42,8 +42,8 @@ export interface UserContacts {
 
 export interface UserPersonalInformation {
   'Номер счета': string;
-  Зарплата: string;
-  'Еженедельная зарплата': string;
+  Зарплата: number;
+  'Еженедельная зарплата': number;
   'Дата трудоустройства': string;
   'Дата рождения': string;
 }

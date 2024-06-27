@@ -11,10 +11,12 @@ import { UserProfileHeader } from './user-profile-header';
 import { cn } from '@/shared/utils';
 import { UserMainInformation } from '@/entities/user/ui/user-main-information/user-main-information';
 import { UserVacation } from '@/entities/user/ui/user-vacation/user-vacation';
+import { useCountriesStore } from '@/entities/countries/countries.store';
 
 interface UserProfileProps {
   className?: string;
   user: UserType;
+  countries?: string[];
 }
 
 type TabsType =
@@ -30,10 +32,13 @@ const tabs: TabsType[] = [
 
 export const UserProfile = memo(
   (props: UserProfileProps) => {
-    const { className = '', user } = props;
+    const { className = '', user, countries } = props;
 
-    const [activeTab, setActiveTab] =
-      useState<TabsType>('Отпуск');
+    useCountriesStore.use.setCountries()(countries);
+
+    const [activeTab, setActiveTab] = useState<TabsType>(
+      'Основная информация',
+    );
 
     const onChangeActiveTab = useCallback(
       (newTab: string) => {

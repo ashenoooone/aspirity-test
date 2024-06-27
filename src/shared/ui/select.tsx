@@ -10,6 +10,7 @@ import {
 
 import { cn } from '@/shared/utils';
 import { ReactNode } from 'react';
+import { Typography } from '@/shared/ui/typography';
 
 const Select = SelectPrimitive.Root;
 
@@ -183,53 +184,69 @@ const SelectSeparator = React.forwardRef<
 SelectSeparator.displayName =
   SelectPrimitive.Separator.displayName;
 
-type Option = {
+export type Option = {
   label: string;
   value: string;
 };
 
 type SelectProps = {
-  options: Option[];
+  options?: Option[];
   placeholder?: string;
   value?: string;
   onChange?: (val: string) => void;
   icon?: ReactNode;
+  className?: string;
   label?: string;
+  disabled?: boolean;
 };
 export const SelectCombined = (props: SelectProps) => {
   const {
-    options,
+    options = [],
     icon,
-    label = 'Опции',
     onChange,
+    label,
     placeholder,
     value,
+    className,
+    disabled,
   } = props;
   return (
     <Select onValueChange={onChange} value={value}>
       <SelectTrigger
         className={cn(
-          'disabled:pointer-events-none peer box-border w-full text-text-secondary text-body-2 leading-body-2 font-medium bg-transparent hover:border-icon-secondary rounded-[4px] outline-none border border-border-primary',
+          'box-border relative w-full text-text-secondary text-body-2 leading-body-2 font-medium bg-transparent hover:border-icon-secondary rounded-[4px] outline-none border border-border-primary',
           {
             'px-[14px] py-[8px]': icon === undefined,
+            'opacity-[32%] pointer-events-none': disabled,
           },
+          className,
         )}
       >
         <SelectValue
           placeholder={placeholder || 'Выберите опцию'}
         />
+        {label && (
+          <Typography
+            className={
+              'px-[4px] absolute bg-bg top-0 -translate-y-1/2'
+            }
+            variant={'caption'}
+          >
+            {label}
+          </Typography>
+        )}
       </SelectTrigger>
       <SelectContent
-        className={
-          'bg-bg border border-border-primary text-text-primary'
-        }
+        className={cn(
+          'bg-bg border border-border-primary text-text-primary',
+          className,
+        )}
       >
         <SelectGroup>
-          <SelectLabel>{label}</SelectLabel>
-          {options.map((option) => (
+          {options?.map((option, index) => (
             <SelectItem
               className={'cursor-pointer'}
-              key={option.value}
+              key={`${option.value}`}
               value={option.value}
             >
               {option.label}

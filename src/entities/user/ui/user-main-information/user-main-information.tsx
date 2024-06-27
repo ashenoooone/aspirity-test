@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { UserPersonalInformation } from './user-personal-information';
 import { UserUpload } from './user-upload';
 import {
@@ -22,41 +22,40 @@ interface UserMainInformationProps {
   userMainInformation: TUserMainInformation;
 }
 
-export const UserMainInformation = memo(
-  (props: UserMainInformationProps) => {
-    const {
-      className = '',
-      userUpload,
-      userPersonalInformation,
-      userDepartments,
-      userContacts,
-      userMainInformation,
-    } = props;
-    return (
-      <div
-        className={cn(className, 'flex gap-4 items-start')}
+export const UserMainInformation = (
+  props: UserMainInformationProps,
+) => {
+  const {
+    className = '',
+    userUpload,
+    userPersonalInformation,
+    userDepartments,
+    userContacts,
+    userMainInformation,
+  } = props;
+
+  return (
+    <div
+      className={cn(className, 'flex gap-4 items-start')}
+    >
+      <Box
+        className={
+          'max-w-[820px] gap-10 flex flex-col flex-shrink-0 w-full p-[30px]'
+        }
       >
-        <Box
-          className={
-            'max-w-[820px] gap-10 flex flex-col flex-shrink-0 w-full p-[30px]'
-          }
-        >
-          <UserPersonalInformation
-            userMainInformation={userMainInformation}
-            userPersonalInformation={
-              userPersonalInformation
-            }
-          />
-          <UserDepartments
-            userDepartments={userDepartments}
-          />
-          <UserContacts userContacts={userContacts} />
-        </Box>
-        <UserUpload
-          className={'w-full'}
-          userUpload={userUpload}
+        <UserPersonalInformation
+          userMainInformation={userMainInformation}
+          userPersonalInformation={userPersonalInformation}
         />
-      </div>
-    );
-  },
-);
+        <UserDepartments
+          userDepartments={userDepartments}
+        />
+        <UserContacts userContacts={userContacts} />
+      </Box>
+      <UserUpload
+        className={'w-full'}
+        userUpload={userUpload}
+      />
+    </div>
+  );
+};

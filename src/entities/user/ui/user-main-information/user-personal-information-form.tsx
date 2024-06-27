@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import {
   UserMainInformation,
   UserPersonalInformation as TUserPersonalInformation,
@@ -12,7 +12,12 @@ import { Input } from '@/shared/ui/input';
 import { cn } from '@/shared/utils';
 import { Button } from '@/shared/ui/button';
 import { _select } from '@/shared/ui/_select';
-import { Select, SelectCombined } from '@/shared/ui/select';
+import {
+  Option,
+  Select,
+  SelectCombined,
+} from '@/shared/ui/select';
+import { useCountriesStore } from '@/entities/countries/countries.store';
 
 interface UserPersonalInformationFormProps {
   className?: string;
@@ -44,6 +49,18 @@ export const UserPersonalInformationForm = memo(
       disabled,
     } = props;
 
+    const countries = useCountriesStore.use.countries?.();
+
+    const countriesSelectOptions: Option[] | undefined =
+      useMemo(() => {
+        return Array.from(new Set(countries))?.map(
+          (i, index) => ({
+            label: i,
+            value: i,
+          }),
+        );
+      }, [countries]);
+
     const { control, handleSubmit } =
       useForm<UserPersonalInformationFormValues>({
         disabled: disabled,
@@ -54,13 +71,12 @@ export const UserPersonalInformationForm = memo(
           Страна: userMainInformation.Страна,
           Должность: userMainInformation.Должность,
           Город: userMainInformation.Город,
-          Зарплата: userPersonalInformation.Зарплата,
+          Зарплата: `${userPersonalInformation.Зарплата} руб/мес`,
           'Номер счета':
             userPersonalInformation['Номер счета'],
-          'Еженедельная зарплата':
-            userPersonalInformation[
-              'Еженедельная зарплата'
-            ],
+          'Еженедельная зарплата': `${
+            userPersonalInformation['Еженедельная зарплата']
+          } руб/нед`,
           'Дата трудоустройства':
             userPersonalInformation['Дата трудоустройства'],
           'Дата рождения':
@@ -122,36 +138,25 @@ export const UserPersonalInformationForm = memo(
           />
         </div>
         <div className={'flex gap-6'}>
-          {/* todo сделать селекты */}
           <Controller
             render={({ field }) => (
-              <Input label={'Страна'} {...field} />
+              <SelectCombined
+                label={'Страна'}
+                disabled={disabled}
+                placeholder={'Страна'}
+                className={'basis-1/2'}
+                options={countriesSelectOptions}
+                {...field}
+              />
             )}
             name={'Страна'}
             control={control}
           />
-          {/* todo сделать селекты */}
           <Controller
             render={({ field }) => (
-              <SelectCombined
-                options={[
-                  {
-                    value: 'Москва',
-                    label: 'Москва',
-                  },
-                  {
-                    value: 'Москва1',
-                    label: 'Москва1',
-                  },
-                  {
-                    value: 'Москва2',
-                    label: 'Москва2',
-                  },
-                  {
-                    value: 'Москва3',
-                    label: 'Москва3',
-                  },
-                ]}
+              <Input
+                className={'basis-1/2'}
+                label={'Город'}
                 {...field}
               />
             )}
@@ -162,7 +167,22 @@ export const UserPersonalInformationForm = memo(
         <div className={'flex gap-6'}>
           <Controller
             render={({ field }) => (
-              <Input label={'Зарплата'} {...field} />
+              <Input
+                label={'Зарплата'}
+                {...field}
+                onFocus={(e) => {
+                  const value = e.target.value;
+                  if (value.includes(' руб/мес')) {
+                    field.onChange(
+                      value.replace(' руб/мес', ''),
+                    );
+                  }
+                }}
+                onBlur={(e) => {
+                  const value = e.target.value;
+                  field.onChange(value + ' руб/мес');
+                }}
+              />
             )}
             name={'Зарплата'}
             control={control}
@@ -172,6 +192,18 @@ export const UserPersonalInformationForm = memo(
               <Input
                 label={'Еженедельная зарплата'}
                 {...field}
+                onFocus={(e) => {
+                  const value = e.target.value;
+                  if (value.includes(' руб/нед')) {
+                    field.onChange(
+                      value.replace(' руб/нед', ''),
+                    );
+                  }
+                }}
+                onBlur={(e) => {
+                  const value = e.target.value;
+                  field.onChange(value + ' руб/нед');
+                }}
               />
             )}
             name={'Еженедельная зарплата'}
