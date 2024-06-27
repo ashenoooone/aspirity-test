@@ -30,7 +30,11 @@ export const UserDepartments = memo(
 
     return (
       <div className={cn(className)}>
-        <div className={'flex justify-between mb-8'}>
+        <div
+          className={
+            'flex justify-between items-center mb-8'
+          }
+        >
           <Typography
             className={
               'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
@@ -60,7 +64,12 @@ export const UserDepartments = memo(
               'flex items-center justify-between mb-10'
             }
           >
-            <Typography tag={'h4'} variant={'h4'}>
+            <Typography
+              tag={'h4'}
+              className={
+                'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
+              }
+            >
               Подразделения
             </Typography>
             <Button

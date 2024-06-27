@@ -48,7 +48,7 @@ export const UserContactsForm = memo(
         onSubmit={handleSubmit(onSubmit)}
         className={cn('flex flex-col gap-6', className)}
       >
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <Input label={'Номер телефона'} {...field} />
@@ -67,7 +67,7 @@ export const UserContactsForm = memo(
             control={control}
           />
         </div>
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <Input label={'Telegram'} {...field} />

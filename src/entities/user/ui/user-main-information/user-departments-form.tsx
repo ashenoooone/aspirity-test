@@ -50,7 +50,7 @@ export const UserDepartmentsForm = memo(
         onSubmit={handleSubmit(onSubmit)}
         className={cn('flex flex-col gap-6', className)}
       >
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <Input label={'Отдел'} {...field} />
@@ -66,7 +66,7 @@ export const UserDepartmentsForm = memo(
             control={control}
           />
         </div>
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <Input label={'Уровень'} {...field} />

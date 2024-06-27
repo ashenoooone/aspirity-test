@@ -36,7 +36,11 @@ export const UserPersonalInformation = memo(
 
     return (
       <div className={cn(className)}>
-        <div className={'flex justify-between mb-8'}>
+        <div
+          className={
+            'flex justify-between items-center mb-8'
+          }
+        >
           <Typography
             className={
               'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
