@@ -95,7 +95,7 @@ export const UserPersonalInformationForm = memo(
         onSubmit={handleSubmit(onSubmit)}
         className={cn(className, 'flex flex-col gap-6')}
       >
-        <div className={'flex gap-6'}>
+        <div className={'flex flex-col xl:flex-row gap-6'}>
           <Controller
             render={({ field }) => (
               <Input label={'Имя'} {...field} />
@@ -118,7 +118,7 @@ export const UserPersonalInformationForm = memo(
           name={'Отчество'}
           control={control}
         />
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <Input label={'Дата рождения'} {...field} />
@@ -137,7 +137,7 @@ export const UserPersonalInformationForm = memo(
             control={control}
           />
         </div>
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <SelectCombined
@@ -164,7 +164,7 @@ export const UserPersonalInformationForm = memo(
             control={control}
           />
         </div>
-        <div className={'flex gap-6'}>
+        <div className={'flex gap-6 flex-col xl:flex-row'}>
           <Controller
             render={({ field }) => (
               <Input

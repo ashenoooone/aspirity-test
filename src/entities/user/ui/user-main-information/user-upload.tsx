@@ -17,13 +17,22 @@ const UserUploadHeader = (props: {
   percentage: number;
 }) => {
   return (
-    <div className={'flex justify-between items-center'}>
-      <Typography variant={'h5'} tag={'h5'}>
+    <div
+      className={
+        'flex justify-between items-center xl:mb-0 mb-8'
+      }
+    >
+      <Typography
+        className={
+          'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
+        }
+        tag={'h5'}
+      >
         Загрузка сотрудника
       </Typography>
       <Typography
         variant={'body-2'}
-        className={cn({
+        className={cn('font-semibold', {
           'text-red': props.percentage >= 80,
           'text-yellow':
             props.percentage < 80 && props.percentage >= 50,
@@ -45,7 +54,7 @@ const UserUploadTeam = ({
   return (
     <div
       className={
-        'flex xl:flex-row flex-col justify-between'
+        'flex xl:flex-row flex-col justify-between xl:mt-0 mt-4'
       }
     >
       <div>
@@ -55,7 +64,9 @@ const UserUploadTeam = ({
         >
           Ответственный
         </Typography>
-        <div className={'flex items-center gap-2'}>
+        <div
+          className={'flex items-center gap-2 xl:mb-0 mb-4'}
+        >
           <Avatar
             fallback={userUpload.Ответственный.Имя.slice(
               0,
@@ -95,7 +106,7 @@ const UserUploadTermsOfWork = ({
   userUpload: TUserUpload;
 }) => {
   return (
-    <div>
+    <div className={'xl:mt-0 mt-4'}>
       <Typography
         className={'text-text-tertiary'}
         variant={'body-1'}
@@ -127,7 +138,11 @@ const UserUploadProjectInfo = ({
   userUpload: TUserUpload;
 }) => {
   return (
-    <div className={'flex justify-between'}>
+    <div
+      className={
+        'flex justify-between xl:flex-row flex-col gap-4 xl:gap-0'
+      }
+    >
       <div className={'justify-self-start'}>
         <Typography
           className={'text-text-tertiary'}
@@ -150,7 +165,7 @@ const UserUploadProjectInfo = ({
           {userUpload['Тип проекта']}
         </Typography>
       </div>
-      <div />
+      <div className={'hidden xl:block'} />
     </div>
   );
 };
@@ -161,7 +176,7 @@ export const UserUpload = memo((props: UserUploadProps) => {
     <Box
       className={cn(
         className,
-        'p-[30px] flex flex-col gap-[40px]',
+        'py-[30px] px-4 flex flex-col xl:gap-[40px]',
       )}
     >
       <UserUploadHeader
@@ -170,7 +185,10 @@ export const UserUpload = memo((props: UserUploadProps) => {
       <UserUploadProjectInfo userUpload={userUpload} />
       <UserUploadTeam userUpload={userUpload} />
       <UserUploadTermsOfWork userUpload={userUpload} />
-      <Button>Посмотреть всю загрузку</Button>
+      {/*todo модалка*/}
+      <Button className={'mt-8'}>
+        Посмотреть всю загрузку
+      </Button>
     </Box>
   );
 });

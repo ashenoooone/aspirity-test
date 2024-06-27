@@ -37,7 +37,12 @@ export const UserPersonalInformation = memo(
     return (
       <div className={cn(className)}>
         <div className={'flex justify-between mb-8'}>
-          <Typography variant={'h5'} tag={'h5'}>
+          <Typography
+            className={
+              'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
+            }
+            tag={'h5'}
+          >
             Персональная информация
           </Typography>
           <Button
@@ -66,7 +71,12 @@ export const UserPersonalInformation = memo(
               'flex items-center justify-between mb-10'
             }
           >
-            <Typography tag={'h4'} variant={'h4'}>
+            <Typography
+              tag={'h4'}
+              className={
+                'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
+              }
+            >
               Персональная информация
             </Typography>
             <Button
