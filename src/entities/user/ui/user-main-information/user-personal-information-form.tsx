@@ -11,6 +11,8 @@ import {
 import { Input } from '@/shared/ui/input';
 import { cn } from '@/shared/utils';
 import { Button } from '@/shared/ui/button';
+import { _select } from '@/shared/ui/_select';
+import { Select, SelectCombined } from '@/shared/ui/select';
 
 interface UserPersonalInformationFormProps {
   className?: string;
@@ -131,7 +133,27 @@ export const UserPersonalInformationForm = memo(
           {/* todo сделать селекты */}
           <Controller
             render={({ field }) => (
-              <Input label={'Город'} {...field} />
+              <SelectCombined
+                options={[
+                  {
+                    value: 'Москва',
+                    label: 'Москва',
+                  },
+                  {
+                    value: 'Москва1',
+                    label: 'Москва1',
+                  },
+                  {
+                    value: 'Москва2',
+                    label: 'Москва2',
+                  },
+                  {
+                    value: 'Москва3',
+                    label: 'Москва3',
+                  },
+                ]}
+                {...field}
+              />
             )}
             name={'Город'}
             control={control}

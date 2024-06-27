@@ -32,9 +32,8 @@ export const UserProfile = memo(
   (props: UserProfileProps) => {
     const { className = '', user } = props;
 
-    const [activeTab, setActiveTab] = useState<TabsType>(
-      'Основная информация',
-    );
+    const [activeTab, setActiveTab] =
+      useState<TabsType>('Отпуск');
 
     const onChangeActiveTab = useCallback(
       (newTab: string) => {
@@ -65,7 +64,7 @@ export const UserProfile = memo(
         );
       }
       if (activeTab === 'Оборудование') {
-        return <div>Оборудование</div>;
+        return <div>Пока не готово 🤷‍♂️</div>;
       }
     }, [activeTab, user]);
 

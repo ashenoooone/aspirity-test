@@ -1,47 +1,32 @@
-import React, {
-  memo,
-  ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
-import { UserVacationItem } from '../../types';
-import { Box } from '@/shared/ui/box';
-import { cn } from '@/shared/utils';
+import React, { memo, ReactNode, useMemo } from 'react';
 import { Typography } from '@/shared/ui/typography';
 import { Button } from '@/shared/ui/button';
-import {
-  TableCell,
-  TableColumn,
-  TableHead,
-} from '@/shared/ui/table';
+import { Cross } from '@/shared/assets/cross';
+import { UserDepartmentsForm } from '@/entities/user/ui/user-main-information/user-departments-form';
+import { Modal } from '@/shared/ui/modal';
+import { UserVacationItem } from '@/entities/user';
 import { Arrow } from '@/shared/assets/arrow';
-import { UserVacationHistoryModal } from '@/entities/user/ui/user-vacation/user-vacation-history-modal';
+import { cn } from '@/shared/utils';
+import { TableColumn } from '@/shared/ui/table';
 
-interface UserVacationHistoryProps {
+interface UserVacationHistoryModalProps {
   className?: string;
   userVacationHistory: UserVacationItem[];
+  onCloseModalHandler: () => void;
+  isModalOpen: boolean;
 }
 
-export const UserVacationHistory = memo(
-  (props: UserVacationHistoryProps) => {
-    const { className = '', userVacationHistory } = props;
-
-    const [isModalOpen, setIsModalOpen] =
-      useState<boolean>(false);
-
-    const onCloseModalHandler = useCallback(() => {
-      setIsModalOpen(false);
-    }, []);
-
-    const onOpenModalHandler = useCallback(() => {
-      setIsModalOpen(true);
-    }, []);
+export const UserVacationHistoryModal = memo(
+  (props: UserVacationHistoryModalProps) => {
+    const {
+      className = '',
+      userVacationHistory,
+      isModalOpen,
+      onCloseModalHandler,
+    } = props;
 
     const columns: ReactNode[][] = useMemo(() => {
-      // искуственно ограничиваю до 3, в реальном проекте с беком просто получаем сначала 5 штук,
-      // а при открытии модалки подгружаем все остальные
-      return userVacationHistory.slice(0, 3).reduce(
+      return userVacationHistory.reduce(
         (acc, v) => {
           acc[0].push(v['Тип']);
           acc[1].push(
@@ -64,20 +49,24 @@ export const UserVacationHistory = memo(
     }, [userVacationHistory]);
 
     return (
-      <Box className={cn(className, 'p-[30px]')}>
+      <Modal
+        className={'max-w-[824px] w-full'}
+        onClose={onCloseModalHandler}
+        isOpen={isModalOpen}
+      >
         <div
           className={
-            'flex justify-between items-center mb-4'
+            'flex items-center justify-between mb-10'
           }
         >
-          <Typography variant={'h5'} tag={'h5'}>
+          <Typography tag={'h4'} variant={'h4'}>
             История отпусков
           </Typography>
           <Button
-            onClick={onOpenModalHandler}
-            variant={'transparent_alternative'}
+            variant={'icon'}
+            onClick={onCloseModalHandler}
           >
-            Посмотреть все
+            <Cross />
           </Button>
         </div>
         <div className={'flex'}>
@@ -97,12 +86,7 @@ export const UserVacationHistory = memo(
             values={columns[2]}
           />
         </div>
-        <UserVacationHistoryModal
-          isModalOpen={isModalOpen}
-          onCloseModalHandler={onCloseModalHandler}
-          userVacationHistory={userVacationHistory}
-        />
-      </Box>
+      </Modal>
     );
   },
 );

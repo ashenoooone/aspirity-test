@@ -4,7 +4,6 @@ import {
 } from 'class-variance-authority';
 import React from 'react';
 import { cn } from '../utils';
-import { extendTailwindMerge } from 'tailwind-merge';
 
 export const typographyVariants = cva('', {
   variants: {

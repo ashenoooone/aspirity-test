@@ -6,7 +6,6 @@
 :root {
 }
 
-
 body {
     @apply font-poppins bg-[#141414] text-text-primary;
 }
