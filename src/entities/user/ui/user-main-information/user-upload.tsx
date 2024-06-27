@@ -43,7 +43,11 @@ const UserUploadTeam = ({
 }) => {
   // todo title для ответвенного и клик для просмотра всех участников
   return (
-    <div className={'flex justify-between'}>
+    <div
+      className={
+        'flex xl:flex-row flex-col justify-between'
+      }
+    >
       <div>
         <Typography
           className={'text-text-tertiary mb-2'}

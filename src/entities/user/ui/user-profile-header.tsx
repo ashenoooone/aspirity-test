@@ -24,23 +24,42 @@ export const UserProfileHeader = memo(
       currentActiveTab,
     } = props;
     return (
-      <Box className={cn('flex p-10', className)}>
-        <div className={'flex flex-col gap-2'}>
+      <Box
+        className={cn(
+          'flex overflow-hidden xl:p-10 px-4 py-7',
+          className,
+        )}
+      >
+        <div
+          className={
+            'flex flex-col xl:gap-2 gap-6 xl:items-start justify-center items-center w-full'
+          }
+        >
           {/*---*/}
-          <div className={'flex items-center gap-12'}>
+          <div
+            className={
+              'flex flex-col gap-4 text-center xl:text-start xl:flex-row items-center xl:gap-12'
+            }
+          >
             <Avatar
               size={'160'}
               src={userMainInformation['Аватар']}
               alt={userMainInformation['Имя']}
             />
-            <Typography variant={'h3'}>
+            <Typography
+              className={
+                'font-bold xl:text-h3 xl:leading-h3 text-h5 leading-h5'
+              }
+            >
               {userMainInformation['Фамилия']} <br />
               {userMainInformation['Имя']}{' '}
               {userMainInformation['Отчество']}
             </Typography>
           </div>
           {/*---*/}
-          <div className={'ml-52'}>
+          <div
+            className={'xl:ml-52 text-center xl:text-start'}
+          >
             <Typography variant={'body-1'}>
               {userMainInformation['Должность']}
             </Typography>
@@ -62,7 +81,7 @@ export const UserProfileHeader = memo(
             setCurrentActiveTab &&
             currentActiveTab && (
               <Tabs
-                className={'mt-[52px] self-start'}
+                className={'xl:mt-[52px] xl:self-start'}
                 tabs={tabs}
                 setActiveTab={setCurrentActiveTab}
                 activeTab={currentActiveTab}

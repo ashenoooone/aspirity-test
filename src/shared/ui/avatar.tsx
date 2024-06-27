@@ -56,7 +56,7 @@ export const Avatar = memo((props: AvatarProps) => {
     <div
       title={title}
       className={cn(
-        'relative rounded-full',
+        'relative flex-shrink-0 rounded-full',
         sizeClasses[size],
         className,
       )}

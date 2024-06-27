@@ -22,8 +22,12 @@ export const Header = memo((props: HeaderProps) => {
         <Logo />
       </Link>
       <div className={'flex'}>
-        <Button className={'mr-[8px]'}>создать счет</Button>
-        <Button className={'mr-[8px]'}>корзина</Button>
+        <Button className={'xl:block hidden mr-[8px]'}>
+          создать счет
+        </Button>
+        <Button className={'xl:block hidden mr-[8px]'}>
+          корзина
+        </Button>
         <Button variant={'transparent'}>
           <Burger />
         </Button>

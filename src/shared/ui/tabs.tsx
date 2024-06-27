@@ -21,7 +21,12 @@ export const Tabs: React.FC<TabsProps> = ({
   tabs,
 }) => {
   return (
-    <div className={cn('flex', className)}>
+    <div
+      className={cn(
+        'flex overflow-x-scroll [&::-webkit-scrollbar]:hidden whitespace-nowrap max-w-full flex-no-wrap',
+        className,
+      )}
+    >
       {tabs.map((tab) => {
         return (
           <button
