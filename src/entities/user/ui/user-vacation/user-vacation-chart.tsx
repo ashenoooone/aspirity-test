@@ -100,11 +100,12 @@ export const UserVacationChart = memo(
               <Cell
                 key={`cell-${index}`}
                 stroke={'currentColor'}
+                fill={'currentColor'}
                 strokeWidth={
                   entry.name === hoveredItem ? 5 : 0
                 }
                 className={cn(
-                  `fill-${entry.color} text-${entry.color}`,
+                  `text-${entry.color} fill-${entry.color}`,
                   {
                     'z-10': entry.name === hoveredItem,
                   },
