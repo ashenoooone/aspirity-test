@@ -9,6 +9,8 @@ import { Button } from '@/shared/ui/button';
 import { UserPersonalInformationForm } from '@/entities/user/ui/user-main-information/user-personal-information-form';
 import { Modal } from '@/shared/ui/modal';
 import { Cross } from '@/shared/assets/cross';
+import { UserPersonalInformationModal } from '@/entities/user/ui/user-main-information/user-personal-information-modal';
+
 interface UserPersonalInformationProps {
   className?: string;
   userPersonalInformation: TUserPersonalInformation;
@@ -56,47 +58,17 @@ export const UserPersonalInformation = memo(
             Изменить
           </Button>
         </div>
-        <div>
-          <UserPersonalInformationForm
-            disabled
-            userPersonalInformation={
-              userPersonalInformation
-            }
-            userMainInformation={userMainInformation}
-          />
-        </div>
-        <Modal
-          className={'max-w-[824px] w-full'}
+        <UserPersonalInformationForm
+          disabled
+          userPersonalInformation={userPersonalInformation}
+          userMainInformation={userMainInformation}
+        />
+        <UserPersonalInformationModal
           onClose={onCloseModalHandler}
           isOpen={isModalOpen}
-        >
-          <div
-            className={
-              'flex items-center justify-between mb-10'
-            }
-          >
-            <Typography
-              tag={'h4'}
-              className={
-                'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
-              }
-            >
-              Персональная информация
-            </Typography>
-            <Button
-              variant={'icon'}
-              onClick={onCloseModalHandler}
-            >
-              <Cross />
-            </Button>
-          </div>
-          <UserPersonalInformationForm
-            userPersonalInformation={
-              userPersonalInformation
-            }
-            userMainInformation={userMainInformation}
-          />
-        </Modal>
+          userPersonalInformation={userPersonalInformation}
+          userMainInformation={userMainInformation}
+        />
       </div>
     );
   },

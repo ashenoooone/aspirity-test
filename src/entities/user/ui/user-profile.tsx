@@ -36,8 +36,9 @@ export const UserProfile = memo(
 
     useCountriesStore.use.setCountries()(countries);
 
-    const [activeTab, setActiveTab] =
-      useState<TabsType>('Отпуск');
+    const [activeTab, setActiveTab] = useState<TabsType>(
+      'Основная информация',
+    );
 
     const onChangeActiveTab = useCallback(
       (newTab: string) => {

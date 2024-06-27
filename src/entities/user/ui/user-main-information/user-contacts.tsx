@@ -7,6 +7,7 @@ import { UserContactsForm } from '@/entities/user/ui/user-main-information/user-
 import { Cross } from '@/shared/assets/cross';
 import { UserDepartmentsForm } from '@/entities/user/ui/user-main-information/user-departments-form';
 import { Modal } from '@/shared/ui/modal';
+import { UserContactsModal } from '@/entities/user/ui/user-main-information/user-contacts-modal';
 
 interface UserContactsProps {
   className?: string;
@@ -54,33 +55,11 @@ export const UserContacts = memo(
           disabled
           userContacts={userContacts}
         />
-        <Modal
-          className={'max-w-[824px] w-full'}
-          onClose={onCloseModalHandler}
+        <UserContactsModal
+          userContacts={userContacts}
           isOpen={isModalOpen}
-        >
-          <div
-            className={
-              'flex items-center justify-between mb-10'
-            }
-          >
-            <Typography
-              tag={'h4'}
-              className={
-                'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
-              }
-            >
-              Подразделения
-            </Typography>
-            <Button
-              variant={'icon'}
-              onClick={onCloseModalHandler}
-            >
-              <Cross />
-            </Button>
-          </div>
-          <UserContactsForm userContacts={userContacts} />
-        </Modal>
+          onClose={onCloseModalHandler}
+        />
       </div>
     );
   },

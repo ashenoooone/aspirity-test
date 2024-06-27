@@ -7,6 +7,7 @@ import { UserDepartmentsForm } from './user-departments-form';
 import { Cross } from '@/shared/assets/cross';
 import { UserPersonalInformationForm } from '@/entities/user/ui/user-main-information/user-personal-information-form';
 import { Modal } from '@/shared/ui/modal';
+import { UserDepartmentsModal } from '@/entities/user/ui/user-main-information/user-departments-modal';
 
 interface UserDepartmentsProps {
   className?: string;
@@ -54,35 +55,11 @@ export const UserDepartments = memo(
           disabled
           userDepartments={userDepartments}
         />
-        <Modal
-          className={'max-w-[824px] w-full'}
-          onClose={onCloseModalHandler}
+        <UserDepartmentsModal
+          userDepartments={userDepartments}
           isOpen={isModalOpen}
-        >
-          <div
-            className={
-              'flex items-center justify-between mb-10'
-            }
-          >
-            <Typography
-              tag={'h4'}
-              className={
-                'text-body-1 leading-body-1 xl:text-h5 xl:leading-h5'
-              }
-            >
-              Подразделения
-            </Typography>
-            <Button
-              variant={'icon'}
-              onClick={onCloseModalHandler}
-            >
-              <Cross />
-            </Button>
-          </div>
-          <UserDepartmentsForm
-            userDepartments={userDepartments}
-          />
-        </Modal>
+          onClose={onCloseModalHandler}
+        />
       </div>
     );
   },

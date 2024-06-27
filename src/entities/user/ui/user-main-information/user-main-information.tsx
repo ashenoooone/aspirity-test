@@ -38,12 +38,12 @@ export const UserMainInformation = (
     <div
       className={cn(
         className,
-        'flex xl:flex-row  flex-col gap-4 xl:items-start items-stretch',
+        'flex xl:flex-row flex-col gap-4 xl:items-start items-stretch',
       )}
     >
       <Box
         className={
-          'xl:max-w-[820px] gap-10 flex flex-col flex-shrink-0 w-full p-[30px]'
+          'xl:max-w-[820px] gap-10 flex flex-col flex-shrink-0 w-full py-[30px] px-4 xl:p-[30px]'
         }
       >
         <UserPersonalInformation
