@@ -10,7 +10,7 @@ const getProfileFromServer = async ({
   id: number;
 }): Promise<{ profile: UserType }> => {
   return await fetch(
-    `${process.env.NEXT_URL}/profile/api/${id}`,
+    `http://localhost:3000/profile/api/${id}`,
     {
       cache: 'no-cache',
     },
