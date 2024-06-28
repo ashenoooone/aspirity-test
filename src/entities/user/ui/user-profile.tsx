@@ -12,6 +12,7 @@ import { cn } from '@/shared/utils';
 import { UserMainInformation } from '@/entities/user/ui/user-main-information/user-main-information';
 import { UserVacation } from '@/entities/user/ui/user-vacation/user-vacation';
 import { useCountriesStore } from '@/entities/countries/countries.store';
+import { UserEquipment } from '@/entities/user/ui/user-equipment/user-equipment';
 
 interface UserProfileProps {
   className?: string;
@@ -36,9 +37,8 @@ export const UserProfile = memo(
 
     useCountriesStore.use.setCountries()(countries);
 
-    const [activeTab, setActiveTab] = useState<TabsType>(
-      'Основная информация',
-    );
+    const [activeTab, setActiveTab] =
+      useState<TabsType>('Оборудование');
 
     const onChangeActiveTab = useCallback(
       (newTab: string) => {
@@ -69,7 +69,11 @@ export const UserProfile = memo(
         );
       }
       if (activeTab === 'Оборудование') {
-        return <div>Пока не готово 🤷‍♂️</div>;
+        return (
+          <UserEquipment
+            userEquipment={user.Оборудование}
+          />
+        );
       }
     }, [activeTab, user]);
 

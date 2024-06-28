@@ -45,7 +45,7 @@ export const UserVacationHistoryList = memo(
     return (
       <div className={className}>
         {/*1280px+*/}
-        <div className={'lg:flex hidden'}>
+        <div className={'flex lg:hidden'}>
           <TableColumn
             className={'basis-2/5'}
             header={'Тип'}

@@ -67,11 +67,12 @@ export interface UserMainInformation {
   Аватар: string;
 }
 
-export interface UserEquipment {
-  Ноутбук: string;
-  Монитор: string;
-  Мышь: string;
-  Клавиатура: string;
+export type UserEquipment = UserEquipmentItem[];
+
+export interface UserEquipmentItem {
+  'Название товара': string;
+  Статус: 'Личное' | 'Компания';
+  'Осталось недель': number | null;
 }
 
 export interface UserUpload {
