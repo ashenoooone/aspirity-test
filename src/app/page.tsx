@@ -156,9 +156,9 @@ export default function Home() {
           </div>
           <div className={'pl-10 flex flex-col gap-2'}>
             <div className={'mt-2 flex items-center gap-2'}>
-              <Dot className={'flex-shrink-0 text-red'} />{' '}
+              <Dot className={'flex-shrink-0 text-green'} />{' '}
               <Typography tag="span" variant={'h6'}>
-                😖 Не сделал
+                😎 Полностью сделал страницу согласно макету
               </Typography>
             </div>
           </div>
