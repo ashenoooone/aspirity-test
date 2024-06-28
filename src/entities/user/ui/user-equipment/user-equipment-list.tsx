@@ -39,7 +39,7 @@ export const UserEquipmentList = memo(
     return (
       <div className={className}>
         {/*1280px+*/}
-        <div className={'flex lg:hidden'}>
+        <div className={'xl:flex hidden'}>
           <TableColumn
             className={'basis-3/5'}
             header={'Название товара'}

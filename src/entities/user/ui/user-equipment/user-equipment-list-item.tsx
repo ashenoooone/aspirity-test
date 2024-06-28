@@ -28,6 +28,9 @@ export const UserEquipmentListItem = memo(
           className={'inline-flex flex-col gap-2'}
           variant={'body-1'}
         >
+          <span className={'text-text-tertiary'}>
+            Статус
+          </span>
           <Badge
             variant={
               item.Статус === 'Компания' ? 'orange' : 'blue'
