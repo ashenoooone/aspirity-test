@@ -6,7 +6,7 @@ import {
 } from 'class-variance-authority';
 
 export const buttonVariants = cva(
-  'text-button font-semibold transition flex items-center justify-center leading-button uppercase px-[16px] py-[10px] rounded-[4px]',
+  'text-button font-semibold transition flex items-center justify-center leading-button uppercase px-[16px] py-[10px] rounded-[4px] disabled:border-state-accent-disabled disabled:pointer-events-none',
   {
     variants: {
       variant: {
@@ -15,9 +15,10 @@ export const buttonVariants = cva(
           'text-text-tertiary hover:text-text-secondary normal-case',
         default:
           'text-text-primary bg-bg-accent hover:bg-state-blue-hover focus:bg-state-blue-focused disabled:bg-state-accent-disabled',
-        outline: '',
+        outline:
+          'text-text-accent border border-border-accent hover:bg-state-transparent-blue-hover focus:bg-state-transparent-blue-focused disabled:text-text-primary',
         transparent:
-          'text-text-accent hover:bg-state-transparent-blue-hover focus:bg-state-transparent-blue-focused disabled:text-dark-text-primary',
+          'text-text-accent hover:bg-state-transparent-blue-hover focus:bg-state-transparent-blue-focused ',
       },
     },
     defaultVariants: {

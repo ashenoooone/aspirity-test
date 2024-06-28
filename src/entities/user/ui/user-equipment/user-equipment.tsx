@@ -1,10 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { UserEquipment as TUserEquipment } from '@/entities/user';
 import { Box } from '@/shared/ui/box';
 import { Typography } from '@/shared/ui/typography';
 import { Button } from '@/shared/ui/button';
 import { cn } from '@/shared/utils';
 import { UserEquipmentList } from '@/entities/user/ui/user-equipment/user-equipment-list';
+import { UserEquipmentChangeModal } from '@/entities/user/ui/user-equipment/user-equipment-change-modal';
 
 interface UserEquipmentProps {
   className?: string;
@@ -14,6 +15,18 @@ interface UserEquipmentProps {
 export const UserEquipment = memo(
   (props: UserEquipmentProps) => {
     const { className = '', userEquipment } = props;
+
+    const [isModalOpen, setIsModalOpen] =
+      useState<boolean>(false);
+
+    const onCloseModalHandler = useCallback(() => {
+      setIsModalOpen(false);
+    }, []);
+
+    const onOpenModalHandler = useCallback(() => {
+      setIsModalOpen(true);
+    }, []);
+
     return (
       <Box
         className={cn(
@@ -37,11 +50,19 @@ export const UserEquipment = memo(
               {userEquipment?.length ?? ''}
             </span>
           </Typography>
-          <Button variant={'transparent_alternative'}>
+          <Button
+            onClick={onOpenModalHandler}
+            variant={'transparent_alternative'}
+          >
             Изменить
           </Button>
         </div>
         <UserEquipmentList userEquipment={userEquipment} />
+        <UserEquipmentChangeModal
+          isOpen={isModalOpen}
+          onClose={onCloseModalHandler}
+          userEquipment={userEquipment}
+        />
       </Box>
     );
   },
